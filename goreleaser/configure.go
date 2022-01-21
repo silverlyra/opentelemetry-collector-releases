@@ -209,10 +209,12 @@ func DockerManifest(imagePrefixes []string, dist string) (manifests []config.Doc
 			)
 		}
 
-		manifests = append(manifests, config.DockerManifest{
-			NameTemplate:   fmt.Sprintf("%s/%s:{{ .Version }}", prefix, imageName(dist)),
-			ImageTemplates: imageTemplates,
-		})
+		for _, version := range []string{"{{ .Version }}", "latest"} {
+			manifests = append(manifests, config.DockerManifest{
+				NameTemplate:   fmt.Sprintf("%s/%s:%s", prefix, imageName(dist), version),
+				ImageTemplates: imageTemplates,
+			})
+		}
 	}
 	return
 }

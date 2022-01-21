@@ -207,7 +207,17 @@ docker_manifests:
   - otel/opentelemetry-collector:{{ .Version }}-386
   - otel/opentelemetry-collector:{{ .Version }}-amd64
   - otel/opentelemetry-collector:{{ .Version }}-arm64
+- name_template: otel/opentelemetry-collector:latest
+  image_templates:
+  - otel/opentelemetry-collector:{{ .Version }}-386
+  - otel/opentelemetry-collector:{{ .Version }}-amd64
+  - otel/opentelemetry-collector:{{ .Version }}-arm64
 - name_template: otel/opentelemetry-collector-contrib:{{ .Version }}
+  image_templates:
+  - otel/opentelemetry-collector-contrib:{{ .Version }}-386
+  - otel/opentelemetry-collector-contrib:{{ .Version }}-amd64
+  - otel/opentelemetry-collector-contrib:{{ .Version }}-arm64
+- name_template: otel/opentelemetry-collector-contrib:latest
   image_templates:
   - otel/opentelemetry-collector-contrib:{{ .Version }}-386
   - otel/opentelemetry-collector-contrib:{{ .Version }}-amd64
